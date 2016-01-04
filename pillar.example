@@ -1,0 +1,3 @@
+elasticsearch:
+  lookup:
+    foo: elasticsearch-bar
