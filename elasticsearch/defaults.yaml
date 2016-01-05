@@ -4,8 +4,6 @@
 # common mutualized values
 {% set version_full = "2.1.1" %}
 {% set version_deb_sha1 = "6d0d6c61a10e380f1c5f2f4a9d15f8c2d52c48e0" %}
-{% set cluster_id = "main" %}
-
 
 elasticsearch:
   java:
@@ -31,14 +29,14 @@ elasticsearch:
   group: elasticsearch
   conf:
     cluster:
-      name: 'my-application'
+      name: 'elasticsearch'
     node:
       name: 'node-1'
       rack: r1
       max_local_storage_nodes: 1
     path:
-      data: '/var/lib/elasticsearch/{{ cluster_id }}'
-      logs: '/var/log/elasticsearch/{{ cluster_id }}'
+      data: '/var/lib/elasticsearch'
+      logs: '/var/log/elasticsearch'
     bootstrap:
       mlockall: 'true'
     network:
