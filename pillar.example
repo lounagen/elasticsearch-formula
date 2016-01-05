@@ -1,3 +1,23 @@
 elasticsearch:
   lookup:
     foo: elasticsearch-bar
+  conf:
+    cluster:
+      name: 'MyCluster'
+    node:
+      name: "{{ grains['id'] }}"
+      rack: RAC0
+      max_local_storage_nodes: 1
+    path:
+      data: '/var/lib/elasticsearch'
+      logs: '/var/log/elasticsearch'
+    network:
+      host: "{{ grains['ip4_interfaces']['eth0'][0] }}"
+    gateway:
+      recover_after_nodes: 2
+    discovery:
+      zen:
+        ping:
+          unicast:
+            hosts: '["10.2.3.4", "10.5.6.7"]'
+        minimum_master_nodes: 0
